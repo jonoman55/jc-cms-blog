@@ -11,33 +11,32 @@ const CommentsForm = ({ slug }) => {
         comment: null,
         storeData: false
     });
-  
+
     useEffect(() => {
         setLocalStorage(window.localStorage);
         const initialFormData = {
             name: window.localStorage.getItem('name'),
             email: window.localStorage.getItem('email'),
-            storeData: window.localStorage.getItem('name')
-                || window.localStorage.getItem('email'),
+            storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
         };
         setFormData(initialFormData);
     }, []);
-  
+
     const onInputChange = (e) => {
-      const { target } = e;
-      if (target.type === 'checkbox') {
-        setFormData((prevState) => ({
-          ...prevState,
-          [target.name]: target.checked,
-        }));
-      } else {
-        setFormData((prevState) => ({
-          ...prevState,
-          [target.name]: target.value,
-        }));
-      }
+        const { target } = e;
+        if (target.type === 'checkbox') {
+            setFormData((prevState) => ({
+                ...prevState,
+                [target.name]: target.checked,
+            }));
+        } else {
+            setFormData((prevState) => ({
+                ...prevState,
+                [target.name]: target.value,
+            }));
+        }
     };
-  
+
     const handlePostSubmission = () => {
         setError(false);
         const { name, email, comment, storeData } = formData;
@@ -51,7 +50,7 @@ const CommentsForm = ({ slug }) => {
             comment,
             slug,
         };
-  
+
         if (storeData) {
             localStorage.setItem('name', name);
             localStorage.setItem('email', email);
@@ -59,7 +58,7 @@ const CommentsForm = ({ slug }) => {
             localStorage.removeItem('name');
             localStorage.removeItem('email');
         }
-  
+
         submitComment(commentObj)
             .then((res) => {
                 if (res.createComment) {
@@ -93,13 +92,19 @@ const CommentsForm = ({ slug }) => {
             <div className="grid grid-cols-1 gap-4 mb-4">
                 <div>
                     <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
-                    <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
+                    <label className="text-gray-500 cursor-pointer" htmlFor="storeData">
+                        Save my name, email in this browser for the next time I comment
+                    </label>
                 </div>
             </div>
             {error && <p className="text-xs text-red-500">All fields are required</p>}
             <div className="mt-8">
                 <button type="button" onClick={handlePostSubmission} className="inline-block px-8 py-3 text-lg font-medium text-white transition duration-500 bg-pink-600 rounded-full cursor-pointer ease hover:bg-indigo-900">Post Comment</button>
-                {showSuccessMessage && <span className="float-right mt-3 text-xl font-semibold text-green-500">Comment submitted for review</span>}
+                {showSuccessMessage && (
+                    <span className="float-right mt-3 text-xl font-semibold text-green-500">
+                        Comment submitted for review
+                    </span>
+                )}
             </div>
         </div>
     );

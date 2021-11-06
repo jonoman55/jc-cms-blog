@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import moment from 'moment';
 import parse from 'html-react-parser';
 import { getComments } from '../services';
@@ -7,8 +7,9 @@ const Comments = ({ slug }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        getComments(slug)
-            .then((result) => setComments(result));
+        getComments(slug).then((result) => {
+            setComments(result);
+        });
     }, []);
 
     return (
@@ -20,14 +21,14 @@ const Comments = ({ slug }) => {
                         {' '}
                         Comments
                     </h3>
-                    {comments.map((comment) => (
-                        <div key={comment.createdAt} className="pb-4 mb-4 border-b border-gray-100">
+                    {comments.map((comment, index) => (
+                        <div key={index} className="pb-4 mb-4 border-b border-gray-100">
                             <p className="mb-4">
                                 <span className="font-semibold">{comment.name}</span>
                                 {' '}
                                 on
                                 {' '}
-                                {moment(comment.createdAt).format('MMM, DD, YYYY')}
+                                {moment(comment.createdAt).format('MMM DD, YYYY')}
                             </p>
                             <p className="w-full text-gray-600 whitespace-pre-line">
                                 {parse(comment.comment)}
