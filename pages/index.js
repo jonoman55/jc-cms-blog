@@ -7,8 +7,8 @@ export default function Home({ posts }) {
     return (
         <>
             <Head>
-                <title>JC CMS Blog</title>
-                <link rel="icon" href="/favicon.ico" />
+                <title>JC Dev Blog</title>
+                <link rel="icon" href="/favicon.png" />
             </Head>
             <div className="container px-10 mx-auto mb-8">
                 <FeaturedPosts />
