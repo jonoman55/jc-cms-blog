@@ -83,16 +83,16 @@ const CommentsForm = ({ slug }) => {
         <div className="p-8 pb-12 mb-8 bg-white rounded-lg shadow-lg">
             <h3 className="pb-4 mb-8 text-xl font-semibold border-b">Leave a Comment</h3>
             <div className="grid grid-cols-1 gap-4 mb-4">
-                <textarea value={formData.comment} onChange={onInputChange} className="w-full h-40 p-4 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" name="comment" placeholder="Comment" />
+                <textarea value={formData.comment || ""} onChange={onInputChange} className="w-full h-40 p-4 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" name="comment" placeholder="Comment" />
             </div>
             <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
-                <input type="text" value={formData.name} onChange={onInputChange} className="w-full px-4 py-2 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" placeholder="Name" name="name" />
-                <input type="email" value={formData.email} onChange={onInputChange} className="w-full px-4 py-2 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" placeholder="Email" name="email" />
+                <input type="text" value={formData.name || ""} onChange={onInputChange} className="w-full px-4 py-2 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" placeholder="Name" name="name" />
+                <input type="email" value={formData.email || ""} onChange={onInputChange} className="w-full px-4 py-2 text-gray-700 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-gray-200" placeholder="Email" name="email" />
             </div>
             <div className="grid grid-cols-1 gap-4 mb-4">
                 <div>
-                    <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
-                    <label className="text-gray-500 cursor-pointer" htmlFor="storeData">
+                    <input checked={formData.storeData || ""} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
+                    <label className="ml-2 text-gray-500 cursor-pointer" htmlFor="storeData">
                         Save my name, email in this browser for the next time I comment
                     </label>
                 </div>
