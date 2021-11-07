@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Carousel from 'react-multi-carousel';
 import { FeaturedPostCard } from '../components';
 import { getFeaturedPosts } from '../services';
+import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {

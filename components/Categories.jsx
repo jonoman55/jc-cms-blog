@@ -13,7 +13,9 @@ const Categories = () => {
 
     return (
         <div className="p-8 pb-12 mb-8 bg-white rounded-lg shadow-lg">
-            <h3 className="pb-4 mb-8 text-xl font-semibold border-b">Categories</h3>
+            <h3 className="pb-4 mb-8 text-xl font-semibold border-b">
+                Categories
+            </h3>
             {categories.map((category, index) => (
                 <Link key={index} href={`/category/${category.slug}`}>
                     <span className={`cursor-pointer block ${(index === categories.length - 1) ? 'border-b-0' : 'border-b'} pb-3 mb-3`}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import moment from 'moment';
+import Image from 'next/image';
 import Link from 'next/link';
 import { graphCMSImageLoader } from '../util';
 import { getSimilarPosts, getRecentPosts } from '../services';
@@ -31,16 +31,18 @@ const PostWidget = ({ categories, slug }) => {
                         <Image
                             className="align-middle rounded-full"
                             loader={graphCMSImageLoader}
+                            src={post.featuredImage.url}
                             alt={post.title}
                             height="60px"
                             width="60px"
                             unoptimized
-                            src={post.featuredImage.url}
                         />
                     </div>
                     <div className="flex-grow ml-4">
-                        <p className="text-gray-500 font-xs">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
-                        <Link href={`/post/${post.slug}`} className="text-md" key={index}>
+                        <p className="text-gray-500 font-xs">
+                            {moment(post.createdAt).format('MMM DD, YYYY')}
+                        </p>
+                        <Link key={index} className="text-md" href={`/post/${post.slug}`}>
                             {post.title}
                         </Link>
                     </div>

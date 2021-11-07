@@ -1,8 +1,8 @@
 const Loader = () => (
     <div className="text-center">
         <button
-            type="button"
             className="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md cursor-not-allowed bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700"
+            type="button"
             disabled=""
         >
             <svg className="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

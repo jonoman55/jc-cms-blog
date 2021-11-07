@@ -16,7 +16,9 @@ const Header = () => {
             <div className="inline-block w-full py-8 border-b border-blue-400">
                 <div className="block md:float-left">
                     <Link href="/">
-                        <span className="text-4xl font-bold text-white cursor-pointer">JC Dev Blog</span>
+                        <span className="text-4xl font-bold text-white cursor-pointer">
+                            JC Dev Blog
+                        </span>
                     </Link>
                 </div>
                 <div className="hidden md:float-left md:contents">
